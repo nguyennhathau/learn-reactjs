@@ -131,6 +131,26 @@ p {
   .section {
     width: 95vw;
   }
+
+  .jobs-center {
+    width: 90vw;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    column-gap: 4rem;
+  }
+  .btn-container {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .job-btn {
+    margin-bottom: 1rem;
+  }
+  .active-btn {
+    box-shadow: -2px 0 var(--clr-primary-5);
+  }
+  .job-btn:hover {
+    box-shadow: -2px 0 var(--clr-primary-5);
+  }
 }
 
 .loading {
@@ -218,27 +238,7 @@ Jobs
 .job-icon {
   color: var(--clr-primary-5);
 }
-@media screen and (min-width: 992px) {
-  .jobs-center {
-    width: 90vw;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    column-gap: 4rem;
-  }
-  .btn-container {
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-  .job-btn {
-    margin-bottom: 1rem;
-  }
-  .active-btn {
-    box-shadow: -2px 0 var(--clr-primary-5);
-  }
-  .job-btn:hover {
-    box-shadow: -2px 0 var(--clr-primary-5);
-  }
-}
+
 .btn {
   text-transform: uppercase;
   background: var(--clr-primary-5);
