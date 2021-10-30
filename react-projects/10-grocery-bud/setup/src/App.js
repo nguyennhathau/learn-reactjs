@@ -2,11 +2,20 @@ import React, { useState, useEffect } from 'react'
 import List from './List'
 import Alert from './Alert'
 
+const getLocalStorage = () => {
+  let list = localStorage.getItem('list')
+  if (list) {
+    return JSON.parse(localStorage.getItem('list'))
+  } else {
+    return []
+  }
+}
+
 function App() {
   const [name, setName] = useState('')
-  const [list, setList] = useState([])
+  const [list, setList] = useState(getLocalStorage)
   const [isEditing, setIsEditing] = useState(false)
-  const [editID, setEditID] = useState('')
+  const [editID, setEditID] = useState(null)
   const [alert, setAlert] = useState({ show: false, type: '', msg: '' })
 
   const inputBug = (e) => {
@@ -15,32 +24,34 @@ function App() {
     } else if (name && isEditing) {
       setList(
         list.map((item) => {
-          if (item === editID) {
-            return name
+          if (item.id === editID) {
+            return { ...item, title: name }
           }
           return item
         })
       )
       setName('')
       setIsEditing(false)
-      setEditID('')
+      setEditID(null)
       showAlert(true, 'success', 'value changed')
     } else {
       showAlert(true, 'success', 'item added to the list')
-      setList([...list, name])
+      const newItem = { id: new Date().getTime().toString(), title: name }
+      setList([...list, newItem])
       setName('')
     }
     e.preventDefault()
   }
 
-  const inputBtn = (name) => {
-    const specificItem = list.find((item) => item === name)
+  const inputBtn = (id) => {
+    const specificItem = list.find((item) => item.id === id)
+    console.log(specificItem)
     setIsEditing(true)
-    setEditID(name)
-    setName(specificItem)
+    setEditID(id)
+    setName(specificItem.title)
   }
-  const deleteBtn = (bug) => {
-    let newArr = list.filter((x) => x !== bug)
+  const deleteBtn = (id) => {
+    let newArr = list.filter((item) => item.id !== id)
     setList(newArr)
     setName('')
     showAlert(true, 'danger', 'item removed')
@@ -63,6 +74,10 @@ function App() {
       clearTimeout(timer)
     }
   }, [alert])
+
+  useEffect(() => {
+    localStorage.setItem('list', JSON.stringify(list)) // truyen len server phai la string
+  }, [list])
 
   return (
     <main>

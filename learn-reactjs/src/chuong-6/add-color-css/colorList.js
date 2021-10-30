@@ -1,6 +1,6 @@
 import React from 'react'
 import Color from './color'
-// import ColorsContext from '../../MyContext'
+import { css } from '@emotion/react'
 import { useColors } from '../add-color-css/index'
 
 export function ColorList() {
@@ -9,14 +9,14 @@ export function ColorList() {
   if (!colors.length) return <div>No data</div>
 
   return (
-    <div>
+    <div
+      className={css`
+        display: flex;
+        flex-wrap: wrap;
+      `}
+    >
       {colors.map((color, i) => (
-        <Color
-          key={color.id}
-          {...color}
-          // handleDelete={handleDelete}
-          // onRate={onRateColor}
-        />
+        <Color key={color.id} {...color} />
       ))}
     </div>
   )

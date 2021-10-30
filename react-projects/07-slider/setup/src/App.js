@@ -7,13 +7,13 @@ function App() {
   const [people, setPeople] = useState(data)
   // const person = data[count]
 
-  // useEffect(() => {
-  //   console.log(count)
-  //   let slider = setTimeout(clickNext, 3000)
-  //   return () => {
-  //     clearInterval(slider)
-  //   }
-  // }, [count])
+  useEffect(() => {
+    console.log(count)
+    let slider = setTimeout(clickNext, 3000)
+    return () => {
+      clearTimeout(slider)
+    }
+  }, [count])
 
   const clickNext = () => {
     if (count >= data.length - 1) {
