@@ -189,6 +189,10 @@ nav {
 .show-container {
   height: 10rem;
 }
+
+.show-container1 {
+  height: 200px;
+}
 @media screen and (min-width: 800px) {
   .nav-center {
     max-width: 1170px;
