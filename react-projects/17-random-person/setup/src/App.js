@@ -63,7 +63,6 @@ function App() {
     }
   }
 
-  // console.log(person)
   useEffect(() => {
     loadUser()
   }, [])
