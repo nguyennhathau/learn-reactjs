@@ -216,6 +216,16 @@ Pagination
   cursor: pointer;
 }
 
+li.page-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li.break {
+  margin-top: 10px;
+}
+
 @media screen and (min-width: 775px) {
   .btn-container {
     margin: 0 auto;
