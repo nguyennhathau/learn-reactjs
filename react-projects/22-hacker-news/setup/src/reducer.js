@@ -6,5 +6,40 @@ import {
   HANDLE_SEARCH,
 } from './actions'
 
-const reducer = () => {}
+const reducer = (state, action) => {
+  switch (action.type) {
+    case SET_LOADING:
+      return { ...state, isLoading: true }
+    case SET_STORIES:
+      return {
+        ...state,
+        isLoading: false,
+        hits: action.payload.hits,
+        nbPages: action.payload.nbPages,
+      }
+    case HANDLE_SEARCH:
+      return { ...state, query: action.payload, page: 0 }
+
+    case HANDLE_PAGE:
+      if (action.payload === 'inc') {
+        if (state.page >= state.nbPages - 1) {
+          return { ...state, page: 0 }
+        }
+        return { ...state, page: state.page + 1 }
+      } else {
+        if (state.page <= 0) {
+          return { ...state, page: state.nbPages - 1 }
+        }
+        return { ...state, page: state.page - 1 }
+      }
+
+    case REMOVE_STORY:
+      return {
+        ...state,
+        hits: state.hits.filter((story, index) => index !== action.payload),
+      }
+    default:
+      throw new Error(`no matching "${action.type}" action type`)
+  }
+}
 export default reducer
