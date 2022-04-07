@@ -9,3 +9,4 @@ add master 2
 add master-new 2
 
 test conflic
+conflict
