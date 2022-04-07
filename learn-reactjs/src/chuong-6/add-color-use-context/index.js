@@ -5,6 +5,7 @@ import ColorForm from './ref'
 // import ColorsContext from '../../MyContext'
 
 const ColorContext = React.createContext()
+
 export const useColors = () => useContext(ColorContext)
 
 export function AddColorUseContext() {

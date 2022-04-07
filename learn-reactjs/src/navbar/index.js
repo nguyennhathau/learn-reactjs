@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom'
 // import { browserHistory, Router, Route } from 'react-router'
 
 import { Recipes } from '../react-element/recipe'
@@ -65,47 +65,57 @@ export function Menu() {
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
-          <Route exact path='/'>
-            <Home />
+        <Routes>
+          <Route exact path='/' element={<Home />}>
+            {/* <Home /> */}
           </Route>
-          <Route path='/recipes'>
-            <Recipes />
+          <Route path='/recipes' element={<Recipes />}>
+            {/* <Recipes /> */}
           </Route>
-          <Route path='/rating'>
-            <Rating />
+          <Route path='/rating' element={<Rating />}>
+            {/* <Rating /> */}
           </Route>
-          <Route path='/Counter'>
-            <Counter />
+          <Route path='/Counter' element={<Counter />}>
+            {/* <Counter /> */}
           </Route>
-          <Route path='/color-oganizer'>
-            <ColorOganizer />
+          <Route path='/color-oganizer' element={<ColorOganizer />}>
+            {/* <ColorOganizer /> */}
           </Route>
-          <Route path='/color-oganizer2'>
-            <ColorOganizerTwo />
+          <Route path='/color-oganizer2' element={<ColorOganizerTwo />}>
+            {/* <ColorOganizerTwo /> */}
           </Route>
-          <Route path='/add-color-with-ref'>
-            <AddColorWithRef />
+          <Route path='/add-color-with-ref' element={<AddColorWithRef />}>
+            {/* <AddColorWithRef /> */}
           </Route>
-          <Route path='/add-color-with-useInput'>
-            <AddColorWithUseInput />
+          <Route
+            path='/add-color-with-useInput'
+            element={<AddColorWithUseInput />}
+          >
+            {/* <AddColorWithUseInput /> */}
           </Route>
-          <Route path='/add-color-with-context'>
-            <AddColorUseContext />
+          <Route
+            path='/add-color-with-context'
+            element={<AddColorUseContext />}
+          >
+            {/* <AddColorUseContext /> */}
           </Route>
-          <Route path='/add-color-css'>
-            <AddColorCss />
+          <Route path='/add-color-css' element={<AddColorCss />}>
+            {/* <AddColorCss /> */}
           </Route>
-          <Route path='/add-color-with-redux'>
-            <AddColorUseRedux />
+          <Route path='/add-color-with-redux' element={<AddColorUseRedux />}>
+            {/* <AddColorUseRedux /> */}
           </Route>
-          <Route path='/githubUse'>
-            <GitHubUse login='moonhighway' />
+          <Route
+            path='/githubUse'
+            element={<GitHubUse login='moonhighway' />}
+          ></Route>
+          <Route
+            path='/HandlingStates'
+            element={<HandlingStates login='moonhighway' />}
+          >
+            {/* <HandlingStates login='moonhighway' /> */}
           </Route>
-          <Route path='/HandlingStates'>
-            <HandlingStates login='moonhighway' />
-          </Route>
-        </Switch>
+        </Routes>
       </Router>
     </div>
   )

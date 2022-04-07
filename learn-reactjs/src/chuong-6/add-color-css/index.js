@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import data from './color-data.json'
 import { ColorList } from './colorList'
 import ColorForm from './ref'
-// import ColorsContext from '../../MyContext'
+import ColorsContext from '../../MyContext'
 
 const ColorContext = React.createContext()
 export const useColors = () => useContext(ColorContext)

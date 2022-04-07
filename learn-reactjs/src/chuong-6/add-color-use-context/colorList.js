@@ -1,7 +1,8 @@
 import React from 'react'
 import Color from './color'
-// import ColorsContext from '../../MyContext'
-import { useColors } from '../add-color-css/index'
+import ColorsContext from '../../MyContext'
+import { useColors } from './index'
+// import { AddColorCss } from '../add-color-css/index'
 
 export function ColorList() {
   const { colors } = useColors()

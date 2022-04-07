@@ -17,6 +17,7 @@ const AddColorForm = ({
     resetColor()
   }
 
+  console.log('titleProps : ' + JSON.stringify({ ...titleProps })) //{"value":""}
   return (
     <>
       <form onSubmit={handleSubmit}>
